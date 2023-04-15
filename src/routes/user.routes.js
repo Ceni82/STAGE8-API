@@ -4,6 +4,12 @@ const usersController = require ("../controllers/usersController");
 
 const usersRoutes = Router();
 
+function myMiddleware(request, response, next){
+    console.log("oooiii")
+}
+
+
+
 const UserController = new usersController();
 
 
@@ -18,7 +24,7 @@ const UserController = new usersController();
 
 });*/
 
-usersRoutes.post("/", UserController.create);
+usersRoutes.post("/", myMiddleware, UserController.create);
 
 
 
